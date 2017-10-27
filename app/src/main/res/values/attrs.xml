@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <attr name="left_icon" format="reference"></attr>
+    <attr name="right_icon" format="reference"></attr>
+    <attr name="bg_color" format="color"></attr>
+    <attr name="hint_text" format="string"></attr>
+    <attr name="edit_text_size" format="dimension"></attr>
+    <attr name="left_img_size" format="dimension"></attr>
+    <attr name="right_img_size" format="dimension"></attr>
+
+    <declare-styleable name="DpEditText">
+        <attr name="left_icon"></attr>
+        <attr name="right_icon"></attr>
+        <attr name="bg_color"></attr>
+        <attr name="left_img_size"></attr>
+        <attr name="right_img_size"></attr>
+        <attr name="edit_text_size"></attr>
+        <attr name="hint_text"></attr>
+    </declare-styleable>
+
+</resources>
