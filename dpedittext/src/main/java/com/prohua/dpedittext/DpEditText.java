@@ -10,6 +10,7 @@ import android.os.Build;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.text.Editable;
+import android.text.InputType;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
 import android.view.KeyEvent;
@@ -80,7 +81,7 @@ public class DpEditText extends RelativeLayout {
         TypedArray typedArray = context.obtainStyledAttributes(attrs,
                 R.styleable.DpEditText);
 
-        int leftIcon = 0, rightIcon = 0, bgColor = 0xffffff, mTextSize = 12, leftSize = 25, rightSize = 25;
+        int leftIcon = 0, rightIcon = 0, mTextSize = 12, leftSize = 25, rightSize = 25;
         String hintText = "", editTextContent = "";
 
         int n = typedArray.getIndexCount();
@@ -94,9 +95,6 @@ public class DpEditText extends RelativeLayout {
 
             } else if (attr == R.styleable.DpEditText_edit_text) {
                 editTextContent = typedArray.getString(attr);
-
-            } else if (attr == R.styleable.DpEditText_bg_color) {
-                bgColor = typedArray.getColor(attr, 0xffffff);
 
             } else if (attr == R.styleable.DpEditText_edit_text_size) {
                 mTextSize = (int) typedArray.getDimension(attr, 12);
@@ -115,7 +113,6 @@ public class DpEditText extends RelativeLayout {
 
         typedArray.recycle();
 
-        RelativeLayout relativeLayout = myView.findViewById(R.id.bg);
         editText = myView.findViewById(R.id.edit);
         ImageView leftImg = myView.findViewById(R.id.left);
         final ImageView rightImg = myView.findViewById(R.id.right);
@@ -137,8 +134,6 @@ public class DpEditText extends RelativeLayout {
         if(editTextContent.length()>0) {
             rightImg.setVisibility(VISIBLE);
         }
-
-        relativeLayout.setBackgroundColor(bgColor);
 
         LayoutParams para= (LayoutParams) leftImg.getLayoutParams();
         para.width = leftSize;
@@ -258,6 +253,10 @@ public class DpEditText extends RelativeLayout {
     public int px2dip(Context context, float pxValue) {
         final float scale = context.getResources().getDisplayMetrics().density;
         return (int) (pxValue / scale + 0.5f);
+    }
+
+    public void setInputType(int type) {
+        editText.setInputType(type);
     }
 
     public String getEditContent() {

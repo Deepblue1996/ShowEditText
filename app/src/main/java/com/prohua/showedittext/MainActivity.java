@@ -2,6 +2,7 @@ package com.prohua.showedittext;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.InputType;
 import android.widget.TextView;
 
 import com.prohua.dpedittext.DpEditText;
@@ -18,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
         dpEditText = findViewById(R.id.dp_edit);
         changeTextView = findViewById(R.id.change);
         searchTextView = findViewById(R.id.search);
+        dpEditText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
         dpEditText.addTextSearchListener(new DpEditText.TextSearchListener() {
             @Override
             public void onNext() {

@@ -10,12 +10,11 @@
     <com.prohua.dpedittext.DpEditText
         android:id="@+id/dp_edit"
         android:padding="10dp"
+        android:background="#fff"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:edit_text="@string/app_name"
         app:left_img_size="30dp"
         app:right_img_size="25dp"
-        app:bg_color="#ffffff"
         app:left_icon="@drawable/ic_search"
         app:right_icon="@drawable/ic_clean"
         app:edit_text_size="16sp" />
