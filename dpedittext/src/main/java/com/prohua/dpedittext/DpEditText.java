@@ -30,7 +30,8 @@ import com.github.florent37.viewanimator.ViewAnimator;
  * @param left_img_size Left icon Size
  * @param right_img_size Right icon Size
  * @param edit_text_size EditText Text Size
- * @param hint_text EditText Text Content
+ * @param hint_text EditText Hint Text Content
+ * @param edit_text EditText Text Content
  *
  * @Interface TextChangedListener Seeing the name of a thing one thinks of its function
  * @method onTextChanged Give you textChanged Content
@@ -75,7 +76,7 @@ public class DpEditText extends RelativeLayout {
                 R.styleable.DpEditText);
 
         int leftIcon = 0, rightIcon = 0, bgColor = 0xffffff, mTextSize = 12, leftSize = 25, rightSize = 25;
-        String hintText = "";
+        String hintText = "", editTextContent = "";
 
         int n = typedArray.getIndexCount();
         for (int i = 0; i < n; i++) {
@@ -85,6 +86,9 @@ public class DpEditText extends RelativeLayout {
 
             } else if (attr == R.styleable.DpEditText_right_icon) {
                 rightIcon = typedArray.getResourceId(attr, R.drawable.ic_clean);
+
+            } else if (attr == R.styleable.DpEditText_edit_text) {
+                editTextContent = typedArray.getString(attr);
 
             } else if (attr == R.styleable.DpEditText_bg_color) {
                 bgColor = typedArray.getColor(attr, 0xffffff);
@@ -112,6 +116,7 @@ public class DpEditText extends RelativeLayout {
         final ImageView rightImg = myView.findViewById(R.id.right);
 
         editText.setHint(hintText);
+        editText.setText(editTextContent);
         editText.setTextSize(px2dip(context, mTextSize));
 
         if(leftIcon == 0) {

@@ -8,9 +8,11 @@
     <attr name="edit_text_size" format="dimension"></attr>
     <attr name="left_img_size" format="dimension"></attr>
     <attr name="right_img_size" format="dimension"></attr>
+    <attr name="edit_text" format="string"></attr>
 
     <declare-styleable name="DpEditText">
         <attr name="left_icon"></attr>
+        <attr name="edit_text"></attr>
         <attr name="right_icon"></attr>
         <attr name="bg_color"></attr>
         <attr name="left_img_size"></attr>
