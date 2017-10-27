@@ -1,4 +1,4 @@
-package com.prohua.showedittext;
+package com.prohua.dpedittext;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -80,28 +80,27 @@ public class DpEditText extends RelativeLayout {
         int n = typedArray.getIndexCount();
         for (int i = 0; i < n; i++) {
             int attr = typedArray.getIndex(i);
-            switch (attr) {
-                case R.styleable.DpEditText_left_icon:
-                    leftIcon = typedArray.getResourceId(attr, R.drawable.ic_search);
-                    break;
-                case R.styleable.DpEditText_right_icon:
-                    rightIcon = typedArray.getResourceId(attr, R.drawable.ic_clean);
-                    break;
-                case R.styleable.DpEditText_bg_color:
-                    bgColor = typedArray.getColor(attr, 0xffffff);
-                    break;
-                case R.styleable.DpEditText_edit_text_size:
-                    mTextSize = (int) typedArray.getDimension(attr, 12);
-                    break;
-                case R.styleable.DpEditText_hint_text:
-                    hintText = typedArray.getString(attr);
-                    break;
-                case R.styleable.DpEditText_left_img_size:
-                    leftSize = (int) typedArray.getDimension(attr, 25);
-                    break;
-                case R.styleable.DpEditText_right_img_size:
-                    rightSize = (int) typedArray.getDimension(attr, 25);
-                    break;
+            if (attr == R.styleable.DpEditText_left_icon) {
+                leftIcon = typedArray.getResourceId(attr, R.drawable.ic_search);
+
+            } else if (attr == R.styleable.DpEditText_right_icon) {
+                rightIcon = typedArray.getResourceId(attr, R.drawable.ic_clean);
+
+            } else if (attr == R.styleable.DpEditText_bg_color) {
+                bgColor = typedArray.getColor(attr, 0xffffff);
+
+            } else if (attr == R.styleable.DpEditText_edit_text_size) {
+                mTextSize = (int) typedArray.getDimension(attr, 12);
+
+            } else if (attr == R.styleable.DpEditText_hint_text) {
+                hintText = typedArray.getString(attr);
+
+            } else if (attr == R.styleable.DpEditText_left_img_size) {
+                leftSize = (int) typedArray.getDimension(attr, 25);
+
+            } else if (attr == R.styleable.DpEditText_right_img_size) {
+                rightSize = (int) typedArray.getDimension(attr, 25);
+
             }
         }
 

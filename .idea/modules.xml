@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ShowEditText.iml" filepath="$PROJECT_DIR$/ShowEditText.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dpedittext/DpEditText.iml" filepath="$PROJECT_DIR$/dpedittext/DpEditText.iml" />
     </modules>
   </component>
 </project>
