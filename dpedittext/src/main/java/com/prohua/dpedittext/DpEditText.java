@@ -1,5 +1,9 @@
 package com.prohua.dpedittext;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.os.Build;
@@ -11,6 +15,7 @@ import android.util.AttributeSet;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.animation.LinearInterpolator;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -129,6 +134,9 @@ public class DpEditText extends RelativeLayout {
         } else {
             rightImg.setImageResource(rightIcon);
         }
+        if(editTextContent.length()>0) {
+            rightImg.setVisibility(VISIBLE);
+        }
 
         relativeLayout.setBackgroundColor(bgColor);
 
@@ -146,6 +154,24 @@ public class DpEditText extends RelativeLayout {
             @Override
             public void onClick(View view) {
                 editText.setText("");
+                /*ObjectAnimator anim1 = ObjectAnimator.ofFloat(rightImg, "alpha",
+                        1.0f, 0f);
+                ObjectAnimator anim2 = ObjectAnimator.ofFloat(rightImg, "scale",
+                        1.0f, 0.8f);
+                AnimatorSet animSet = new AnimatorSet();
+                animSet.setDuration(200);
+                animSet.setInterpolator(new LinearInterpolator());
+                //两个动画同时执行
+                animSet.playTogether(anim1, anim2);
+                animSet.start();
+
+                animSet.addListener(new AnimatorListenerAdapter() {
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        super.onAnimationEnd(animation);
+                        rightImg.setVisibility(GONE);
+                    }
+                });*/
                 ViewAnimator
                         .animate(rightImg)
                         .waitForHeight()
@@ -154,7 +180,7 @@ public class DpEditText extends RelativeLayout {
                         .onStop(new AnimationListener.Stop() {
                             @Override
                             public void onStop() {
-                                rightImg.setVisibility(GONE);
+
                             }
                         })
                         .duration(200)
