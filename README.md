@@ -1,5 +1,5 @@
 # ShowEditText
-/**
+
  * 搜索框
  * Search box widget
  *
@@ -17,7 +17,6 @@
  * @method onNext Next Action
  *
  * Created by Deep on 2017/10/27 0027.
- */
  
 To get a Git project into your build:
 
