@@ -23,17 +23,24 @@ To get a Git project into your build:
 
 Step 1. Add the JitPack repository to your build file
 Add it in your root build.gradle at the end of repositories:
+
 <code>
+	
 allprojects {
 	repositories {
 			...
 			maven { url 'https://jitpack.io' }
 	}
 }
+
 </code>
+
 Step 2. Add the dependency
+
 <code>
+	
 dependencies {
 	 compile 'com.github.Deepblue1996:ShowEditText:1.0.3'
 }
+
 </code>
