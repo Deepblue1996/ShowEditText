@@ -19,6 +19,8 @@ method onNext Next Action.
 
 Created by Deep on 2017/10/27 0027.</code></pre>
 
+Todo:输入框类型
+
 ![Image text](https://raw.githubusercontent.com/Deepblue1996/ShowEditText/master/20180203164410.jpg)
  
 ## How to
