@@ -259,6 +259,10 @@ public class DpEditText extends RelativeLayout {
         editText.setInputType(type);
     }
 
+    public void setImeOptions(int imeOptions) {
+        editText.setImeOptions(imeOptions);
+    }
+
     public String getEditContent() {
         return editText.getText().toString();
     }
