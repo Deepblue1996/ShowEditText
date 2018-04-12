@@ -114,7 +114,6 @@ public class DpEditText extends RelativeLayout {
             rightIcon = R.drawable.ic_clean;
         }
 
-
         typedArray.recycle();
 
         editText = myView.findViewById(R.id.edit);
