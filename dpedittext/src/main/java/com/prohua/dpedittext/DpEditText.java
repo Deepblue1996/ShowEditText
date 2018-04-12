@@ -30,20 +30,19 @@ import com.github.florent37.viewanimator.ViewAnimator;
  * 搜索框
  * Search box widget
  *
- * @param left_icon Left icon
- * @param right_icon Right icon
- * @param bg_color widget background
- * @param left_img_size Left icon Size
+ * @param left_icon      Left icon
+ * @param right_icon     Right icon
+ * @param bg_color       widget background
+ * @param left_img_size  Left icon Size
  * @param right_img_size Right icon Size
  * @param edit_text_size EditText Text Size
- * @param hint_text EditText Hint Text Content
- * @param edit_text EditText Text Content
- *
+ * @param hint_text      EditText Hint Text Content
+ * @param edit_text      EditText Text Content
  * @Interface TextChangedListener Seeing the name of a thing one thinks of its function
  * @method onTextChanged Give you textChanged Content
  * @Interface addTextSearchListener Seeing the name of a thing one thinks of its function
  * @method onNext Next Action
- *
+ * <p>
  * Created by Deep on 2017/10/27 0027.
  */
 
@@ -111,6 +110,10 @@ public class DpEditText extends RelativeLayout {
             }
         }
 
+        if(rightIcon == 0) {
+            rightIcon = R.drawable.ic_clean;
+        }
+
         typedArray.recycle();
 
         editText = myView.findViewById(R.id.edit);
@@ -121,26 +124,26 @@ public class DpEditText extends RelativeLayout {
         editText.setText(editTextContent);
         editText.setTextSize(px2dip(context, mTextSize));
 
-        if(leftIcon == 0) {
+        if (leftIcon == 0) {
             leftImg.setVisibility(GONE);
         } else {
             leftImg.setImageResource(leftIcon);
         }
-        if(rightIcon == 0) {
+        if (rightIcon == 0) {
             rightImg.setVisibility(GONE);
         } else {
             rightImg.setImageResource(rightIcon);
         }
-        if(editTextContent.length()>0) {
+        if (editTextContent.length() > 0) {
             rightImg.setVisibility(VISIBLE);
         }
 
-        LayoutParams para= (LayoutParams) leftImg.getLayoutParams();
+        LayoutParams para = (LayoutParams) leftImg.getLayoutParams();
         para.width = leftSize;
         para.height = leftSize;
         leftImg.setLayoutParams(para);
 
-        LayoutParams para2= (LayoutParams) rightImg.getLayoutParams();
+        LayoutParams para2 = (LayoutParams) rightImg.getLayoutParams();
         para2.width = rightSize;
         para2.height = rightSize;
         rightImg.setLayoutParams(para2);
@@ -170,7 +173,7 @@ public class DpEditText extends RelativeLayout {
                 ViewAnimator
                         .animate(rightImg)
                         .waitForHeight()
-                        .alpha(1,0)
+                        .alpha(1, 0)
                         .scale(1.0f, 0.8f)
                         .onStop(new AnimationListener.Stop() {
                             @Override
@@ -187,11 +190,9 @@ public class DpEditText extends RelativeLayout {
         editText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
-                if(i == EditorInfo.IME_ACTION_SEARCH | i == KeyEvent.KEYCODE_ENTER){
-                    if(textSearchListener!=null) {
-                        textSearchListener.onNext();
-                        return true;
-                    }
+                if (textSearchListener != null) {
+                    textSearchListener.onNext();
+                    return true;
                 }
                 return false;
             }
@@ -207,28 +208,28 @@ public class DpEditText extends RelativeLayout {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                if(textChangedListener != null) {
+                if (textChangedListener != null) {
                     textChangedListener.onTextChanged(charSequence);
                 }
             }
 
             @Override
             public void afterTextChanged(Editable editable) {
-                if(!show && temp.length() > 0) {
+                if (!show && temp.length() > 0) {
                     rightImg.setVisibility(VISIBLE);
                     ViewAnimator
                             .animate(rightImg)
                             .waitForHeight()
-                            .alpha(0,1)
+                            .alpha(0, 1)
                             .scale(0.8f, 1.0f)
                             .duration(200)
                             .start();
                     show = true;
-                } else if(temp.length() == 0) {
+                } else if (temp.length() == 0) {
                     ViewAnimator
                             .animate(rightImg)
                             .waitForHeight()
-                            .alpha(1,0)
+                            .alpha(1, 0)
                             .scale(1.0f, 0.8f)
                             .onStop(new AnimationListener.Stop() {
                                 @Override
@@ -245,6 +246,14 @@ public class DpEditText extends RelativeLayout {
         });
 
         addView(myView);
+    }
+
+    public void setEditText(String editTextContent) {
+        editText.setText(editTextContent);
+    }
+
+    public void setEditTextHint(String editTextContent) {
+        editText.setHint(editTextContent);
     }
 
     /**
