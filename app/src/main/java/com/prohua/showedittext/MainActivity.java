@@ -17,9 +17,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        dpEditText = findViewById(R.id.dp_edit);
-        changeTextView = findViewById(R.id.change);
-        searchTextView = findViewById(R.id.search);
+        dpEditText = (DpEditText) findViewById(R.id.dp_edit);
+        changeTextView = (TextView) findViewById(R.id.change);
+        searchTextView = (TextView) findViewById(R.id.search);
         dpEditText.setInputType(EditorInfo.TYPE_CLASS_TEXT | EditorInfo.TYPE_TEXT_VARIATION_PASSWORD);
         dpEditText.setImeOptions(EditorInfo.IME_ACTION_DONE);
         dpEditText.addTextSearchListener(new DpEditText.TextSearchListener() {
