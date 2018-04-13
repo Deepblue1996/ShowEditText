@@ -51,6 +51,8 @@ public class DpEditText extends RelativeLayout {
     private EditText editText;
     private boolean show = false;
 
+    private ImageView rightImg;
+
     public DpEditText(Context context) {
         super(context);
         init(context, null);
@@ -119,7 +121,7 @@ public class DpEditText extends RelativeLayout {
 
         editText = myView.findViewById(R.id.edit);
         ImageView leftImg = myView.findViewById(R.id.left);
-        final ImageView rightImg = myView.findViewById(R.id.right);
+        rightImg = myView.findViewById(R.id.right);
 
         editText.setHint(hintText);
         editText.setText(editTextContent);
@@ -250,6 +252,22 @@ public class DpEditText extends RelativeLayout {
     }
 
     public void setEditText(String editTextContent) {
+        if("".equals(editTextContent)) {
+            ViewAnimator
+                    .animate(rightImg)
+                    .waitForHeight()
+                    .alpha(1, 0)
+                    .scale(1.0f, 0.8f)
+                    .onStop(new AnimationListener.Stop() {
+                        @Override
+                        public void onStop() {
+
+                        }
+                    })
+                    .duration(200)
+                    .start();
+            show = false;
+        }
         editText.setText(editTextContent);
     }
 
