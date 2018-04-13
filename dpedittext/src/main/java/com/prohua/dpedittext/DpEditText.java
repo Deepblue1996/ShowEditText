@@ -252,6 +252,7 @@ public class DpEditText extends RelativeLayout {
     }
 
     public void setEditText(String editTextContent) {
+        editText.setText(editTextContent);
         if("".equals(editTextContent)) {
             ViewAnimator
                     .animate(rightImg)
@@ -268,7 +269,6 @@ public class DpEditText extends RelativeLayout {
                     .start();
             show = false;
         }
-        editText.setText(editTextContent);
     }
 
     public void setEditTextHint(String editTextContent) {
